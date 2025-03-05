@@ -14,6 +14,7 @@ public class GreetingController {
     final GreetingService greetingService;
 
     public GreetingController(GreetingService greetingService) {
+
         this.greetingService = greetingService;
     }
 
@@ -31,14 +32,14 @@ public class GreetingController {
 
     @PutMapping("/put/{message}")
     public String putGreetings(@PathVariable String message){
+
         return "{\""+message+": \"Hello from PUT Request!\"}";
     }
-
-
 
     //for UC2
     @GetMapping("/service")
     public String serviceGreetings(){
+
         return greetingService.getGreetings();
     }
 
@@ -59,32 +60,35 @@ public class GreetingController {
     //for UC4
     @PostMapping("/save")
     public MessageDTO saveMessage(@RequestBody MessageDTO message){
-        System.out.println("hello");
+//        System.out.println("hello");
         return greetingService.saveMessage(message);
     }
 
     //for UC5
     @GetMapping("/find/{id}")
     public MessageDTO findById(@PathVariable Long id){
+
         return greetingService.findById(id);
     }
 
     //for UC6
     @GetMapping("/getAll")
     public List<MessageDTO> findAllMessage(){
+
         return greetingService.findAllMessages();
     }
 
     //for UC7
     @PatchMapping("/edit/{id}")
     public boolean editById(@PathVariable("id") Long id,
-                            @RequestBody String message){
-        return greetingService.editById(id, message);
+                            @RequestBody MessageDTO messageDTO){
+        return greetingService.editById(id, messageDTO.getMessage());
     }
 
     //for UC8
     @DeleteMapping("/delete/{id}")
     public boolean deleteById(@PathVariable("id") Long id){
+
         return greetingService.deleteById(id);
     }
 }

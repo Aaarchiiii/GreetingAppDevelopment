@@ -6,15 +6,15 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@NoArgsConstructor
 public class MessageDTO {
     private String message;
 
     private Long id;
 
+    public MessageDTO(){
+    }
     public MessageDTO(String message) {
         this.message = message;
         this.id = null;
     }
-
 }

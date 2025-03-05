@@ -8,6 +8,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "messages")
+@Getter
+@Setter
 public class MessageEntity {
 
     @Id
@@ -15,5 +17,6 @@ public class MessageEntity {
     private Long id;
 
     private String message;
+
 
 }
