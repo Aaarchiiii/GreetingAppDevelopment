@@ -11,6 +11,7 @@ public class GreetingAppApplication {
 		SpringApplication.run(GreetingAppApplication.class, args);
 
 //		http://localhost:8081/swagger-ui/index.html    (url for Swagger)
+		//		http://localhost:8081/h2 (for h2 database)
 	}
 
 }
